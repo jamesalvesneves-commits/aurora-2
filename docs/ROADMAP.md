@@ -10,21 +10,25 @@
 
 ## Estágio 1 — Auditoria de licenças
 
-- [ ] Validar cada componente do stack.
-- [ ] Excluir componentes não 100% gratuitos.
-- [ ] Registrar fontes oficiais, licenças e versões.
-- [ ] Definir binários ou processo de compilação para cada item.
+- [x] Validar componentes principais do stack.
+- [x] Excluir componentes não 100% gratuitos.
+- [x] Registrar fontes oficiais, licenças e versões.
+- [ ] Validar licença dos pesos do Demucs `htdemucs_6s`.
+- [ ] Validar builds exatos de FFmpeg, SoX e Chocolatey.
 
 ## Estágio 2 — Ambiente Windows
 
-- [ ] Criar instalador idempotente.
-- [ ] Detectar Python 3.11.9, Ollama, GPU, RAM e pastas locais.
-- [ ] Reutilizar downloads existentes quando seguros.
-- [ ] Configurar variáveis de ambiente e atalho na área de trabalho.
+- [x] Criar detector de ambiente.
+- [x] Criar instalador idempotente.
+- [x] Criar estrutura local e atalho.
+- [x] Criar script de execução.
+- [ ] Implementar download verificado dos componentes aprovados.
+- [ ] Implementar configuração do Ollama e Qwen2.5-Coder 7B.
+- [ ] Implementar reparo de instalação.
 
 ## Estágio 3 — Ardour
 
-- [ ] Compilar Ardour para Windows sem limitação demo.
+- [ ] Documentar e automatizar o build do Ardour para Windows.
 - [ ] Validar sessão, faixas, importação, transporte e exportação.
 - [ ] Implementar ponte OSC.
 
@@ -40,7 +44,7 @@
 - [ ] Letras, harmonia, ritmo e melodia.
 - [ ] Geração musical por IA compatível.
 - [ ] Importação e gravação.
-- [ ] Separação de stems.
+- [ ] Separação de stems, após validação dos pesos.
 
 ## Estágio 6 — Master
 
