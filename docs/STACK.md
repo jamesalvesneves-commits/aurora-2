@@ -10,51 +10,52 @@ Um componente só entra no stack master se for:
 - compatível com Windows 11 e com o hardware-alvo;
 - integrável de forma real, testável e documentada.
 
-## Mantidos
+## Status após o Estágio 1
 
-| Componente | Papel | Situação |
+| Componente | Licença / decisão | Status |
 |---|---|---|
-| Aurora Studio | Interface central PySide6 | A construir |
-| Ollama | Orquestrador LLM local | A validar |
-| Qwen2.5-Coder | Modelo de código local | A validar licença e pesos |
-| Continue.dev | Assistente de código no VS Code | A validar |
-| Git for Windows | Versionamento | A instalar |
-| GitHub CLI | Automação GitHub | A instalar |
-| Chocolatey | Instalação de dependências | A validar |
-| Ardour | DAW central | Mantido; compilação própria no Windows |
-| Audacity | Edição e gravação | A validar |
-| LMMS | Produção eletrônica e MIDI | A validar |
-| Zrythm | DAW MIDI-first | A validar |
-| OpenMPT | Tracker e composição modular | A validar |
-| Surge XT | Sintetizador VST3 | A validar |
-| Vital | Sintetizador wavetable | A validar licença da edição usada |
-| FluidSynth | Sintetizador MIDI/SoundFont | A validar |
-| Bespoke Synth | Ambiente modular | A validar |
-| Cardinal | Modular VCV | A validar |
-| ACE-Step | Geração musical por IA | Candidato; validar licença e VRAM |
-| StemDeck | Separação de stems | A validar |
-| Demucs | Motor de separação | A validar licença e pesos |
-| SoX | Processamento de áudio | A validar |
-| FFmpeg | Conversão e processamento | A validar |
-| Módulo de letras | Geração em português | A construir |
-| Módulo de harmonia | Acordes e progressões | A construir |
-| Módulo de ritmo | Bateria e groove | A construir |
-| Módulo de melodia | Melodias e linhas | A construir |
-| Gravação de voz | Captura de microfone | A construir |
-| Importação de áudio/MIDI | WAV, MP3, FLAC, MIDI | A construir |
-| Exportador WAV/MP3 | Renderização final | A construir |
+| Aurora Studio | Projeto próprio, GPL-3.0 | A construir |
+| Ollama | MIT | Aprovado |
+| Qwen2.5-Coder 7B | Apache-2.0 | Aprovado |
+| Continue.dev | Apache-2.0 | Aprovado |
+| Git for Windows | GPLv2 | Aprovado |
+| GitHub CLI | MIT | Aprovado |
+| Chocolatey | Apache-2.0 / GPL compatível | A validar build e fontes |
+| Ardour | GPL; build próprio no Windows | Aprovado como DAW central |
+| Audacity | GPLv3 | Aprovado |
+| LMMS | GPL-2.0-or-later | Aprovado |
+| Zrythm | AGPL-3.0 | Aprovado |
+| OpenMPT | BSD-3-Clause | Aprovado |
+| Surge XT | GPL-3.0 | Aprovado |
+| Vital | GPLv3 no código-fonte | Aprovado somente via build próprio |
+| FluidSynth | LGPL-2.1 | Aprovado |
+| Bespoke Synth | GPLv3 | Aprovado |
+| Cardinal | GPLv3+ | Aprovado com ressalva de artes/módulos |
+| ACE-Step 1.5 | MIT | Aprovado |
+| StemDeck | Apache-2.0 | Aprovado com ressalva de dependências |
+| Demucs | Código MIT; pesos pendentes | Bloqueado até validação dos pesos |
+| SoX | LGPL/GPL conforme build | A validar build exato |
+| FFmpeg | LGPL-2.1+ / GPL opcional | Aprovado com ressalva de build |
+| Módulo de letras | Projeto próprio | A construir |
+| Módulo de harmonia | Projeto próprio | A construir |
+| Módulo de ritmo | Projeto próprio | A construir |
+| Módulo de melodia | Projeto próprio | A construir |
+| Gravação de voz | Projeto próprio | A construir |
+| Importação de áudio/MIDI | Projeto próprio | A construir |
+| Exportador WAV/MP3 | Projeto próprio | A construir |
 
-## Excluídos por licença
+## Excluídos definitivamente
 
 | Componente | Motivo |
 |---|---|
-| MusicGen — pesos oficiais | Pesos licenciados como CC-BY-NC 4.0, uso não comercial. |
+| MusicGen — pesos oficiais | CC-BY-NC 4.0; uso não comercial. |
 | Stable Audio Open | Licença não comercial da Stability AI. |
+| Qwen2.5-Coder 72B | Licença Qwen com restrições; substituído pela variante 7B Apache-2.0. |
 
-## Pendências de validação
+## Próxima validação
 
-- Confirmar licença exata e pesos utilizáveis do Qwen2.5-Coder.
-- Confirmar licença e binários gratuitos do Vital.
-- Confirmar licença, pesos e execução do Demucs/StemDeck.
-- Confirmar se o ACE-Step atende à exigência de licença livre e roda no hardware-alvo.
-- Definir o processo reproducível de compilação do Ardour para Windows.
+1. Confirmar a licença exata dos pesos `htdemucs_6s` do Demucs.
+2. Escolher e documentar o build do FFmpeg e do SoX.
+3. Definir o processo de build do Vital a partir do código-fonte.
+4. Confirmar fontes e licenças do Chocolatey.
+5. Documentar o processo de compilação do Ardour para Windows.
