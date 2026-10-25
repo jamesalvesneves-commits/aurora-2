@@ -1,27 +1,26 @@
 # AURORA 2
 
-AURORA 2 é um estúdio musical local para Windows 11, desenvolvido **do zero**, sem reaproveitar código, histórico, arquivos ou decisões de projetos Aurora anteriores.
+Estúdio musical local para Windows, desenvolvido do zero; somente componentes gratuitos e livres, com Ardour e validação antes da versão master.
 
-## Regra fundamental
+## Recursos
 
-O AURORA 2 aceita somente componentes que sejam **100% gratuitos e livres** para uso no projeto. Qualquer software, modelo ou peso cuja licença imponha uso não comercial, pagamento, trial, limite de uso ou exigência de cartão de crédito será **excluído**.
+- Exportador MIDI offline
+- Criação de sessão `.ardour` e importação de MIDI
+- Abridor de sessão Ardour
+- Fluxo integrado e CLI
+- Integração OSC
+- Instalador e documentação
 
-## Ardour
+## Versão 0.2.0
 
-O **Ardour permanece como DAW central** do AURORA 2.
+A versão `0.2.0` adiciona empacotamento Python, o comando `aurora2-studio` e build automatizado do executável Windows.
 
-A edição demo oficial para Windows não será tratada como versão final, porque possui limitação de reprodução/edição. A rota de desenvolvimento é compilar o Ardour a partir do código-fonte para Windows, eliminando essa limitação e preservando a interface original do Ardour.
+### Uso
 
-## Estado do projeto
+```powershell
+python -m aurora2 "Balada" tracks.json --root . --bpm 90 --ardour "C:\Program Files\Ardour8\bin\ardour8.exe" --open
+```
 
-- Repositório iniciado do zero.
-- Branch `main` permanece vazia até existir uma versão master completa e validada.
-- Desenvolvimento ocorre em `development`.
-- Nenhum componente é considerado integrado sem teste real no Windows.
+### Build Windows
 
-## Documentação
-
-- [Arquitetura](docs/ARQUITETURA.md)
-- [Stack obrigatório](docs/STACK.md)
-- [Plano Ardour](docs/ARDOUR.md)
-- [Roadmap](docs/ROADMAP.md)
+O workflow *Build Windows executable* gera o artefato `AURORA2-Windows-x64`, contendo `AURORA2.exe`.
