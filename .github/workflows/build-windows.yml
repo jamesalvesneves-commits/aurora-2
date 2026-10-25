@@ -9,6 +9,9 @@ on:
       - "pyproject.toml"
       - "scripts/build_windows.ps1"
       - ".github/workflows/build-windows.yml"
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
