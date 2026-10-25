@@ -1,0 +1,45 @@
+name: Aurora 2 automated tests
+
+on:
+  push:
+    branches: [development]
+    paths:
+      - 'aurora2/**'
+      - 'tests/**'
+      - '.github/workflows/aurora2-tests.yml'
+  pull_request:
+    branches: [development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aurora2-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  unit-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - name: Checkout approved source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 3.11.9
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.9'
+      - name: Verify interpreter
+        run: python -c "import sys; assert sys.version_info[:3] == (3, 11, 9), sys.version; print(sys.version)"
+      - name: Verify test discovery
+        run: python -c "import unittest; s = unittest.defaultTestLoader.discover('tests'); n = s.countTestCases(); assert n >= 9, f'Expected at least nine tests, found {n}'; print(f'{n} tests discovered')"
+      - name: Run offline unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Compile new application modules
+        run: python -m compileall -q aurora2 tests
