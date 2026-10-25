@@ -1,0 +1,37 @@
+name: Build Windows executable
+
+on:
+  push:
+    branches:
+      - development
+    paths:
+      - "aurora2/**"
+      - "pyproject.toml"
+      - "scripts/build_windows.ps1"
+      - ".github/workflows/build-windows.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build executable
+        shell: pwsh
+        run: ./scripts/build_windows.ps1
+      - name: Smoke test
+        shell: pwsh
+        run: |
+          python -m pytest -q
+          ./dist/AURORA2.exe --help
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AURORA2-Windows-x64
+          path: dist/AURORA2.exe
+          if-no-files-found: error

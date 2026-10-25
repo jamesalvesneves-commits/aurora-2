@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aurora2"
+version = "0.2.0"
+description = "AURORA 2: geracao musical, MIDI e integracao com Ardour"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+aurora2-studio = "aurora2.studio.ardour_cli:main"
+
+[tool.setuptools.packages.find]
+include = ["aurora2*"]
